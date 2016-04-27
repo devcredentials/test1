@@ -1,0 +1,45 @@
+<div class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand" style="color:#FF7F50"><i class="fa fa-cube"  style="color:#FF7F50"></i><strong> Twelo</strong></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% if(cSession.userId){ %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id="nadmusers" name="nadmusers"><a href="/admin/users"><i class="fa fa-users"></i> Users</a></li>
+              <li id="nadmprods" name="nadmprods"><a href="/admin/products"><i class="fa fa-gift"></i> Products</a></li>
+              <li id="nadkywrds" name="nadkywrds"><a href="/admin/addkeywords"><i class="fa fa-edit"></i> Add Keywords</a></li>
+              <li id="newkw" name="nadkywrds"><a href="/admin/addkeywordsnew"><i class="fa fa-edit"></i> Add Keywords1</a></li>
+            </ul>
+          </li>
+          <li id="nuprod" name="nuprod"><a href="/addproducts"><i class="fa fa-gift"></i> Add Products</a></li>
+          <li id="nfeeds" name="nfeeds"><a href="/feeds">My Feeds</a></li>
+          <!-- <li id="nstores" name="nstores"><a href="/stores">Stores</a></li> -->
+        <% } %>
+<!--
+        <li id="nfaqs" name="nfaqs"><a href="http://www.twelo.com/faqs">Faqs</a></li>
+        <li id="ncontact" name="ncontact"><a href="http://www.twelo.com/contact">Contact</a></li>
+-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if(cSession.userId){ %>
+          <li id="nlogout" name="nlogout"><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+          <li id="nprofile" name="nprofile"><a href="/profile"><i class="fa fa-user"></i> My Profile</a></li>
+        <% } else { %>
+          <li id="nsignin" name="nsignin"><a data-toggle="modal" href="#divSigninModal"><i class="fa fa-sign-in"></i> Login</a></li>
+          <li id="nsignup" name="nsignup"><a data-toggle="modal" href="#divSignupModal"><i class="fa fa-user-plus"></i> Sign Up</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>

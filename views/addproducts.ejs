@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TryRoom-Add Products</title>
+    <meta name="title" content="TryRoom-Add Products">
+    <meta name="description" content="TryRoom is a community for all the world's shopping.">
+    <meta name="author" content="">
+    <meta name="keywords" content="All stores in one place">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+      .radio-label {
+         display: inline-block;
+         vertical-align: top;
+         margin-right: 3%;
+      }
+      .radio-input {
+         display: inline-block;
+         vertical-align: top;
+      }
+      fieldset {
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <% include partials/navbar %>
+    <br>
+    <div class="container-fluid">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h6 class="panel-title"> Add / Post Products </h6>
+          </div>
+          <div class="panel-body">
+            <feildset class="col-sm-8 col-sm-offset-2 text-center">
+              <div class="pull-left text-right">
+                <input class='radio-input' type="radio" id="upload_url" name="upload_rd" value="fromProdUrl" checked tabindex="1"/>
+                <label for="upload_url">External / Product Url</label>
+              </div>
+              <div class="pull-right text-left">
+                <input class='radio-input' type="radio" id="upload_desktop" name="upload_rd" value="fromDesktop" tabindex="2"/>
+                <label for="upload_desktop">Add Product Info</label>
+              </div>
+              <div class="pull-right text-left">
+                <input class='radio-input' type="radio" id="upload_excel" name="upload_rd" value="fromExcel" tabindex="2"/>
+                <label for="upload_excel">Add Excel Info</label>
+              </div>
+            </feildset>
+            <br>
+            <div class="page-header">
+              <h4>Post a product</h4>
+            </div>
+            <!-- External Url -->
+            <div id="fromProdUrl">
+              <div class="controls">
+                <form action="addprod/link" method="post">
+              	   <div class="form-group">
+                     <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+                        <input type="text" id="producturl" name="producturl" class="form-control" placeholder="Product URL" autofocus required>
+                     </div>
+                     <br/>
+                     <button type='submit' id="getProduct" name="getProduct" class="btn btn-primary">Get Product</button>
+              	   </div>
+                </form>
+              </div>
+            </div>
+            <!-- Desktop upload -->
+            <div id="fromDesktop" style="display: none;">
+              <div class="controls">
+                <form action="/prodoper/addproduct" method="post">
+                  <div class="input-group">
+                      <span class="input-group-addon">Image Path</span>
+                      <input id="prodimg" name="prodimg" type="text" class="form-control" value="" autofocus required/>
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Title</span>
+                      <input id="prodtitle" name="prodtitle" type="text" class="form-control" value="" required/>
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Description</span>
+                      <!-- <input id="proddescription" name="proddescription" type="text" class="form-control" value="" /> -->
+                      <textarea id="proddescription" name="proddescription" type="text" class="form-control" rows = "3" value="" ></textarea>
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Currency</span>
+                      <input id="currency" name="currency" type="text" class="form-control" value="" />
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Price</span>
+                      <input id="price" name="price" type="text" class="form-control" value="" required/>
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Product URL</span>
+                      <input id="baseurl" name="baseurl" type="text" class="form-control" value="" />
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Category</span>
+                      <input id="category" name="category" type="text" class="form-control" value="" />
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Store</span>
+                      <select class="form-control" id="store" name="store">
+                        <% if(locals.results.storeList) { %>
+                              <% results.storeList.forEach(function(obj) { %>
+                                <option value=<%= obj._id %>><%= obj.storename %></option>
+                              <% }); %>
+                        <% }; %>
+                      </select>
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Collection</span>
+                      <select class="form-control" id="collection" name="collection">
+                        <% if(locals.results.collectionList) { %>
+                		          <% results.collectionList.forEach(function(obj) { %>
+                                <option value=<%= obj._id %>><%= obj.collectionname %></option>
+                              <% }); %>
+                        <% }; %>
+                      </select>
+                  </div>
+                  <br/>
+                  <button type='submit'id="save" name="save" class="btn btn-primary">Save Product</button>
+              </form>
+              </div>
+            </div>
+            <!-- Excel upload -->
+            <div id="fromExcel" style="display: none;">
+              <% include excelupload %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include partials/footer %>
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // $('ul.nav > li').click(function(e) {
+        //     //e.preventDefault();
+        //     $('ul.nav > li').removeClass('active');
+        //     $(this).addClass('active');
+        // });
+        $('ul.nav > li').removeClass('active');
+        $('#nuprod').addClass('active');
+      });
+      //--
+      $(':radio[id=upload_url]').change(function() {
+        $("#fromDesktop").hide();
+        $("#fromExcel").hide();
+        $("#fromProdUrl").show();
+      });
+      $(':radio[id=upload_desktop]').change(function() {
+        $("#fromProdUrl").hide();
+        $("#fromExcel").hide();
+        $("#fromDesktop").show();
+      });
+      $(':radio[id=upload_excel]').change(function() {
+        $("#fromProdUrl").hide();
+        $("#fromDesktop").hide();
+        $("#fromExcel").show();
+      });
+    </script>
+  </body>
+</html>

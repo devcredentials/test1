@@ -1,0 +1,10 @@
+
+
+<div class="container">
+<% if(locals.excelFile){ %>
+  <h4><strong>File Contents :</strong> </h4>
+  <%= excelFile %>
+<% }else{ %>
+  <h4><strong>Invalid</strong> or <strong>Blank</strong> excel file. </h4>
+<% } %>
+</div>

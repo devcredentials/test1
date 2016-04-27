@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <br>
+    <div class="container-fluid">
+      <div id="page-wrapper">
+        	<div class="table-responsive">
+			  <table class="table">
+			    <thead>
+			      <tr>
+              <th>Store Name</th>
+              <th>Display Name</th>
+              <th>Verification</th>
+              <th>Claimed</th>
+			        <th>Cration Date</th>
+              <th>Favicon</th>
+              <th>Description</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+
+            <% if(locals.stores){ %>
+              <% stores.forEach(function(obj) { %>
+                <tr>
+                  <td><%= obj.storename %></td>
+                  <td><%= obj.stdisplayname %></td>
+                  <td><%= obj.isverified %></td>
+                  <td><%= obj.isclaimed %></td>
+                  <td><%= obj.createdon %></td>
+                  <td><img src='<%= obj.favicon %>'></img></td>
+                  <td><%= obj.stdescription %></td>
+                  <td><a href="../../tweadmin/edit/s/id:<%= obj._id %>"> Edit </a> </td>
+                  <td><a href="../tweadmin/products?sid=<%= obj._id %>"> Edit </a> </td>
+                </tr>
+              <%  }) %>
+            <% } %>
+          </tbody>
+        </table>
+        </div>
+          <hr/>
+        </div>
+        <% include ../partials/footer %>
+        <script src="/js/lib/jquery-2.2.0.min.js"></script>
+        <script src="/js/lib/bootstrap.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            // $('ul.nav > li').click(function (e) {
+            //     //e.preventDefault();
+            //     $('ul.nav > li').removeClass('active');
+            //     $(this).addClass('active');
+            // });
+            $('ul.nav > li').removeClass('active');
+            $('#nadmprods').addClass('active');
+          });
+        </script>
+  </body>
+</html>

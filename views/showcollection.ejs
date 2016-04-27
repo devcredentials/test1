@@ -1,0 +1,68 @@
+
+  <!doctype html>
+  <html>
+    <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <title>TryRoom-My Store</title>
+    	<meta name="title" content="TryRoom-My Store">
+      <meta name="description" content="TryRoom is a community for all the world's shopping.">
+      <meta name="author" content="">
+      <meta name="keywords" content="All stores in one place">
+      <!-- load bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="/css/lib/wcbootstrap.css" media="screen" />
+    	<link rel="stylesheet" type="text/css" href="/css/wcstyle.css" media="screen" />
+      <!-- load fontawesome -->
+      <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+      <!-- load googelpais opensans
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+      <!-- load styles -->
+  		<style>
+        body {
+          padding-top:50px;
+        }
+      </style>
+    </head>
+    <body>
+      <% include partials/navbar %>
+      <div id="my-tab-content" class="tab-content tab_profile pull-left col-lg-12">
+          <div id="tab-1" class="tab-pane active pt14 pull-left col-lg-12 recent_append">
+            <p><strong> Collection Created By : </strong>
+              <% if(products[0]) {%>
+                <%=products[0].userid[0].displayname %></p>
+
+                  <% products.forEach(function(obj) { %>
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                          <img src=<%= obj.productid[0].image %>></img>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="well">
+                            <p> <strong> Title : </strong> <%= obj.productid[0].title %> </p>
+                            <p><strong> Description : </strong> <%= obj.productid[0].description %> </p>
+                            <p><strong> Price : </strong> <%= obj.productid[0].currency %> <%= obj.productid[0].price %> </p>
+                        </div>
+                      </div>
+                  </div>
+
+                    <% }) %>
+                <% } %>
+          </div>
+      </div>
+      <% include partials/footer %>
+  		<script src="/js/lib/jquery-2.2.0.min.js"></script>
+      <script src="/js/lib/bootstrap.min.js"></script>
+  		<script>
+        $(document).ready(function () {
+          $('ul.nav > li').click(function (e) {
+              //e.preventDefault();
+              $('ul.nav > li').removeClass('active');
+              $(this).addClass('active');
+          });
+          $('ul.nav > li').removeClass('active');
+          $('#nstores').addClass('active');
+      	});
+      </script>
+    </body>
+  </html>

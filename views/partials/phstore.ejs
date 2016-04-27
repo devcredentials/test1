@@ -1,0 +1,117 @@
+<div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/css/signed_out_v3.css" type="text/css">
+
+
+<% for (var i = 0, len = results.storeList.length; i < len; i++) { var object="" ;
+if(i==0){object = results.Items0;}
+else if(i==1){object = results.Items1;}
+else if(i==2){object = results.Items2;} %>
+  <li class="trending-listing">
+    <% if(object[0]){ %>
+        <a href="/show/product/id:<%= object[0].productid[0]._id %> " class="listing-image">
+          <div class="ui-toolkit">
+            <div class="card-img-wrap">
+              <img width="340" height="270" alt="<%= object[0].productid[0].title %>" src="<%= object[0].productid[0].image %>">
+            </div>
+          </div>
+          <div class="listing-info clearfix">
+            <span class="listing-price"><span class="currency-symbol"> <%= object[0].productid[0].currency %></span> <span class="currency-value"><%= object[0].productid[0].price %></span></span>
+            <span class="listing-title"><%= object[0].productid[0].title %></span>
+          </div>
+        </a>
+        <% } %>
+
+        <ul class="related-listings">
+          <% if(object[1]){ %>
+                  <li>
+            <a href="/show/product/id:<%= object[1].productid[0]._id %>">
+              <div class="thumbnail-outer">
+                <div class="thumbnail-inner">
+                  <img width="170" height="135" alt= "<%= object[1].productid[0].title %>" src="<%= object[1].productid[0].image %>">
+                </div>
+              </div>
+            </a>
+          </li>
+          <% } %>
+        <% if(object[2]){ %>
+                  <li>
+            <a href="/show/product/id:<%= object[2].productid[0]._id %>">
+              <div class="thumbnail-outer">
+                <div class="thumbnail-inner">
+                  <img width="170" height="135" alt="<%= object[2].productid[0].title %>" src="<%= object[2].productid[0].image %>">
+                </div>
+              </div>
+            </a>
+          </li>
+        <% } %>
+                  <li class="shop-listing-count">
+            <div class="thumbnail-outer count-box">
+                <div class="thumbnail-inner">
+                  <a href="/show/showstore/id:STORE-ID" class="shop-listing-count">
+
+                      <span class="listing-count">80</span> items
+
+                  </a>
+                </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="about-shop clear">
+          <a href="/show/showstore/id:<%= results.storeList[i]._id %>">
+            <span class="owner-details">
+              <span class="about-image"><img width="75" height="75" src="STORE-FAVICON" alt="STORE-FAVICON"></span>
+
+                <em>From</em> <span class="shop-name"> <%= results.storeList[i].storename %></span> <br>
+
+            </span>
+
+            <span class="reviews">
+
+
+
+      <div class="stars small">
+          <input type="hidden" value="4.9646" name="initial-rating">
+          <input type="hidden" value="4.9646" name="rating">
+          <span class="screen-reader-only">5 out of 5 stars.</span>
+          <div aria-hidden="true" class="rating lit" data-rating="1">
+              <span class="ss-star"></span>
+              <div class="rating lit" data-rating="2">
+                                  <span class="ss-star"></span>
+                  <div class="rating lit" data-rating="3">
+                                          <span class="ss-star"></span>
+                      <div class="rating lit" data-rating="4">
+                                                  <span class="ss-star"></span>
+                          <div class="rating lit" data-rating="5">
+                                                          <span class="ss-star"></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+                <span class="reviews-text">
+
+                    <span class="review-count">338</span> Reviews
+
+                </span>
+            </span>
+          </a>
+        </div>
+      </li>
+
+
+  <% } %>
+
+
+
+
+
+
+
+
+
+</div>

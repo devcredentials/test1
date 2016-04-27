@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TryRoom-Add Keywords</title>
+    <meta name="title" content="TryRoom-Add Keywords">
+    <meta name="description" content="TryRoom is a community for all the world's shopping.">
+    <meta name="author" content="">
+    <meta name="keywords" content="All stores in one place">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+      #overlay {
+        display:none; /*hidden on pageload*/
+        position:fixed; /*this will disable it from scrolling*/
+        width:100%; /*this will give the full width*/
+        height:100%; /*this will give the full height*/
+        z-index:999; /*this will keep it above all elements in the page*/
+        left:0; /*this will align it to the left*/
+        top:0; /*this will align it to the top*/
+        background:#000; /*this will give it a black background*/
+      }
+      .popup {
+        display:none; /*hidden on pageload*/
+        width:500px; /*width of popup*/
+        height:220px;  /*height of popup*/
+        padding:10px; /*padding for popup*/
+        background:#fff; /*background of popup*/
+        border:1px solid #000; /*border of popup*/
+        position:absolute; /*this will keep it relative to the body*/
+        z-index:9999; /*this will keep it above the overlay*/
+        top:50%; /*keep popup in center*/
+        left:50%; /*keep popup in center*/
+        margin-left:-300px; /*keep popup in center (it is the - total width / 2)*/
+        margin-top:-300px; /*keep popup in center (it is the - total height / 2)*/
+      }
+      .popup .close { /* close link*/
+        float:right;
+        color:#000;
+        text-decoration:none;/*remove underline from the close link*/
+      }
+      .popup p { /*popup text*/
+        padding:10px 0;
+      }
+      </style>
+
+      <script type="text/javascript">
+      function  addkeyword(id) {
+        var  idc =  id.attributes["name"].value;
+        var act = $("#editpop").attr("action").split("/id:")[0];
+        //alert("aaaaaaaaaaaaaaaaa =     " +act);
+        $("#editpop").attr("action",$("#editpop").attr("action").split("/id:")[0] + '/id:'+id.attributes["name"].value);
+
+         cells = $("#" + idc ).parent().parent().find("td");
+         $("#l1kw").val(cells[4].innerHTML);
+         $("#l2kw").val(cells[5].innerHTML);
+         $("#l3kw").val(cells[6].innerHTML);
+           //click event of the button
+              $("#overlay").fadeTo(100, .3); //this will show the overlay awith a crossbrowser transparency
+              $("#popup1").show(); // show popup1
+              //alert($("#editpop").attr("action"));
+              return false; //disable event propogation (avoid addition of "#" to url)
+          }
+          function closePopup() {
+            //click event of the close button in popup
+            //alert("hi - AAAA");
+            $("#overlay").hide(); //hide overlay
+            $(".popup").hide(); //hide popup
+            return false; //disable event propogation (avoid addition of "#" to url)
+          }
+
+      </script>
+
+
+</head>
+
+<body>
+  <% include ../partials/navbar %>
+  <br>
+<div id="page-wrapper">
+        	<div class="table-responsive">
+			  <table class="table">
+			    <thead>
+			      <tr>
+              <th>Product</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Price</th>
+
+              <th>L1- Keyword</th>
+              <th>L2- Keyword</th>
+              <th>L3- Keyword</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+
+            <% if(locals.products){ %>
+              <% products.forEach(function(prod) { %>
+                <tr>
+                  <td><img src='<%= prod.image %>' height='200' width='300'></img></td>
+                  <td><%= prod.title %></td>
+                  <td><%= prod.description  %></td>
+                  <td><%= prod.currency %><%= prod.price %></td>
+
+                  <td> <% if(prod.keywords[0]){ %>  <%= prod.keywords[0].l1keywords %> <% } %> </td>
+                  <td> <% if(prod.keywords[0]){ %>  <%= prod.keywords[0].l2keywords %> <% } %> </td>
+                  <td> <% if(prod.keywords[0]){ %>  <%= prod.keywords[0].l3keywords %> <% } %> </td>
+                  <td><input name=<%= prod._id %> id=<%= prod._id %> type="button" value="Add Keyword" onclick="addkeyword(this)" class="displayPopup"></td>
+                </tr>
+              <%  }) %>
+            <% } %>
+          </tbody>
+        </table>
+        </div>
+          <hr/>
+        </div>
+
+        <div class="popup" id="popup1"> <a href="#" class="close" onclick="closePopup()">X</a>
+            <% include addkeywordfrm %>
+       </div>
+       <div id="overlay"></div>
+
+          <hr/>
+        </div>
+        <% include ../partials/footer %>
+        <script src="/js/lib/jquery-2.2.0.min.js"></script>
+        <script src="/js/lib/bootstrap.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            // $('ul.nav > li').click(function (e) {
+            //     //e.preventDefault();
+            //     $('ul.nav > li').removeClass('active');
+            //     $(this).addClass('active');
+            // });
+            $('ul.nav > li').removeClass('active');
+            $('#nadkywrds').addClass('active');
+          });
+        </script>
+</body>
+</html>

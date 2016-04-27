@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <br>
+    <div class="container-fluid">
+      <div id="page-wrapper">
+        	<div class="table-responsive">
+			  <table class="table">
+			    <thead>
+			      <tr>
+              <th>Store Name</th>
+              <th>Display Name</th>
+              <th>Image</th>
+              <th>Title</th>
+			        <th>Description</th>
+              <th>Details</th>
+              <th>category</th>
+              <th>categorytype</th>
+              <th>parentcategory</th>
+              <th>currency</th>
+              <th>oldprice</th>
+              <th>price</th>
+              <th>discount</th>
+              <th>sizes</th>
+              <th>addedby</th>
+              <th>keywords</th>
+              <th>addedon</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+            <% if(locals.products){ %>
+            <% products.forEach(function(obj) { %>
+              <tr>
+                <td><%= obj.storeid[0].storename %></td>
+                <td><%= obj.storeid[0].stdisplayname %></td>
+                <td><img src='<%= obj.productid[0].image%>'  style="width:150px;"></img></td>
+                <td><%= obj.productid[0].title %></td>
+                <td><%= obj.productid[0].description  %></td>
+                <td><%= obj.productid[0].details %></td>
+                <td><%= obj.productid[0].category %></td>
+                <td><%= obj.productid[0].category %></td>
+                <td><%= obj.productid[0].categorytype %></td>
+                <td><%= obj.productid[0].parentcategory %></td>
+                <td><%= obj.productid[0].currency %></td>
+                <td><%= obj.productid[0].oldprice %></td>
+                <td><%= obj.productid[0].price %></td>
+                <td><%= obj.productid[0].discount  %></td>
+                <td><%= obj.productid[0].sizes %></td>
+                <td><%= obj.productid[0].addedby %></td>
+                <td><%= obj.productid[0].keywords %></td>
+                <td><%= obj.productid[0].addedon %></td>
+                <td><a href="../../tweadmin/edit/p/id:<%= obj._id %>"> Edit </a> </td>
+              </tr>
+            <%  }) %>
+          <% } %>
+
+          </tbody>
+        </table>
+        </div>
+          <hr/>
+        </div>
+        <% include ../partials/footer %>
+        <script src="/js/lib/jquery-2.2.0.min.js"></script>
+        <script src="/js/lib/bootstrap.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            // $('ul.nav > li').click(function (e) {
+            //     //e.preventDefault();
+            //     $('ul.nav > li').removeClass('active');
+            //     $(this).addClass('active');
+            // });
+            $('ul.nav > li').removeClass('active');
+            $('#nadmprods').addClass('active');
+          });
+        </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/base.css" type="text/css">
+<link rel="stylesheet" href="/css/scoped_fixed_base.css" type="text/css">
+
+<div class="show-lg show-xl show-tv shop-info col-lg-7 pl-lg-3">
+            <div class="shop-name-and-title-container mb-xs-2">
+                <h1 class="mb-xs-1"><% if(products[0]){ %>  <%= products[0].storeid[0].storename %> <% } %></h1>
+                <span>Some discription about store.</span>
+                <span>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+.</span>
+            </div>
+            <p class="trust-signal-row text-gray-lighter">
+                <span class="shop-location-icon ss-etsy ss-location">Store Location</span>
+            </p>
+        </div>
+
+<hr>
+<br>
+<hr>
+<br>
+
+
+
+<div class="ui-toolkit">
+	<div class="block-grid-xs-4 ml-xs-3 mb-xs-4 block-grid-no-whitespace">
+
+      <% products.forEach(function(obj) { %>
+        <div class="block-grid-item listing-card position-relative">
+    			<div class="buyer-card card">
+    				<a title="<%= obj.productid[0].title %>" class="card-body overflow-hidden display-block "  href="/show/product/id:<%= obj.productid[0]._id %>">
+    					<div class="card-img-wrap">
+    						<div class="placeholder placeholder-landscape">
+    							<div class="placeholder-content">
+    								<img alt="" class="placeholder placeholder-landscape width-full" src="<%= obj.productid[0].image %>">
+    							</div>
+    						</div>
+    					</div>
+    				</a>
+    				<div class="card-meta">
+    					<div class="card-meta-row">
+    						<a title="<%= obj.productid[0].title %>" class="card-meta-row-item card-title" href="/show/product/id:<%= obj.productid[0]._id %>">
+    						<%= obj.productid[0].title %>
+    						</a>
+    					</div>
+    					<div class="card-meta-row">
+    						<div class="card-meta-row-item card-price float-right">
+    							<span class="currency-symbol"><%= obj.productid[0].currency %></span>
+    							<span class="currency text-smaller"><%= obj.productid[0].price %></span>
+    						</div>
+    						<a class="card-shop-name card-meta-row-item text-truncate overflow-hidden" title="<%= obj.productid[0].title %>" href="https://www.etsy.com/in-en/shop/NadineJewelry">NadineJewelry
+    						</a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="collections-ui mr-xs-1 mt-xs-1">
+    				<div class="favorite-container">
+    					<button data-source="casanova-collections" class="btn-fave inline-overlay-trigger favorite-item-action" type="button">
+    						<!--icon font and display:none; elements -->
+    						<span class="icon" aria-hidden="true"></span>
+    						<span class="screen-reader-only default">Favourite</span>
+    						<span class="screen-reader-only done remove">Favourited</span>
+    						<span class="ie-fix">&nbsp;</span>
+    					</button>
+    				</div>
+
+    				<div class="collect-container">
+    					<button data-source="casanova-collections" class="btn-collect btn-dropdown inline-overlay-trigger collection-add-action" type="button">
+    						<span class="icon"></span>
+    						<span class="default">Add to</span>
+    						<span class="done remove">Added  </span>
+    						<span class="icon-dropdown"></span>
+    						<span class="ie-fix">&nbsp;</span>
+    					</button>
+    				</div>
+    			</div>
+        </div>
+      <% }) %>
+
+
+	</div>
+</div>

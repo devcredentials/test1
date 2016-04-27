@@ -1,0 +1,114 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TryRoom-Users</title>
+    <meta name="title" content="TryRoom-User Profile">
+    <meta name="description" content="TryRoom is a community for all the world's shopping.">
+    <meta name="author" content="">
+    <meta name="keywords" content="All stores in one place">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- load styles -->
+		<style>
+      body {
+        padding-top:50px;
+        word-wrap:break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <% include partials/navbar %> -->
+    <div class="container">
+
+        <div class="page-header text-center">
+            <h1></span>User Public Page</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="well">
+                    <p><img src="<%= user.displayimage %>"><br><p>
+                    <p>
+                        <strong>username</strong>: <%= user[0].displayname %>
+                      <%  if(user[0].facebook)
+                        { %>
+                        <P>  <strong>gender</strong>: <%= user[0].facebook.gender %></P>
+                      <%  } %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+              <h4>Stores : </h4>
+                <div class="well">
+                    <% store.forEach(function(obj) { %>
+                      <li> <%= obj.storename %>  <%= obj.createdon %> </li>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <h4>Collections : </h4>
+                <div class="well">
+                    <% collection.forEach(function(obj) { %>
+                      <li> <%= obj.collectionname %>  <%= obj.createdon %> </li>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+              <h4>Stores : </h4>
+                <div class="well">
+                    <table calss="table">
+                      <thead>
+                          <tr>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                          <tr>
+                      </thead>
+                      <tbody>
+                        <% product.forEach(function(obj) { %>
+                          <tr>
+                              <td> <%= obj.title %> </td>
+                              <td><img src=<%= obj.image %>></img> </td>
+                              <td> <%= obj.description %> </td>
+                              <td> <%= obj.currency %> <%= obj.price %> </td>
+                          </tr>
+                        <% }) %>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+      </div>
+
+
+
+    </div>
+    <% include partials/footer %>
+		<script src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+		<script>
+      $(document).ready(function () {
+        $('ul.nav > li').click(function (e) {
+            //e.preventDefault();
+            $('ul.nav > li').removeClass('active');
+            $(this).addClass('active');
+        });
+         $('ul.nav > li').removeClass('active');
+         $('#nprofile').addClass('active');
+    	});
+    </script>
+  </body>
+</html>

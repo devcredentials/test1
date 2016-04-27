@@ -1,0 +1,112 @@
+<div>
+<link rel="stylesheet" href="/css/base.css" type="text/css">
+<link rel="stylesheet" href="/css/scoped_fixed_base.css" type="text/css">
+<link rel="stylesheet" href="/css/signed_out_v3.css" type="text/css">
+
+
+<div class="col col7 fix570 ">
+                <div class="favorites-nag">
+            <div class="favorite-container">
+
+            <button data-attribution-source="featured_listings_row" data-downtime-overlay-type="favorite" data-position="nag" data-shop-shop-id="5293776" data-shop-user-id="5702370" data-shop-id="5702370" data-source="listing" class="btn-fave
+                         inline-overlay-trigger              favorite-item-action " type="button">
+                <span class="icon"></span>
+            <span class="default">
+                Favourite
+            </span>
+            <span class="done remove">
+                Favourited
+            </span>
+        </button>
+
+</div>
+
+                <div class="nag-message">
+                    <h2>Like this item?</h2>
+                    Add it to your favourites to revisit it later.
+                </div>
+
+    </div>
+        <div class="image-wrapper">
+    			                <div id="listing-image">
+
+    <!-- Main Image -->
+    <div id="image-main">
+                        <ul id="image-carousel" style="height: 635px;">
+                        <li data-palette-listing-image="" style="" data-large-image-href="<% products.productid[0].image %>" >
+                          <img width="570" alt="products.productid[0].title" src="<%= products.productid[0].image %>">
+                                </li>
+                        <li data-palette-listing-image="" style="display: none; position: absolute; top: 50%; margin-top: -210.5px;" data-large-image-href="https://img1.etsystatic.com/042/0/5293776/il_570xN.609869035_dsbi.jpg" data-full-image-href="https://img1.etsystatic.com/042/0/5293776/il_fullxfull.609869035_dsbi.jpg" data-image-index="1" id="image-1">
+                            <img src="<%= products.productid[0].image %>"></li>
+                        <li data-palette-listing-image="" style="display: none; position: absolute; top: 50%; margin-top: -207.5px;" data-large-image-href="https://img1.etsystatic.com/043/0/5293776/il_570xN.609869277_2n86.jpg" data-full-image-href="https://img1.etsystatic.com/043/0/5293776/il_fullxfull.609869277_2n86.jpg" data-image-index="2" id="image-2">
+                            <img src="<%= products.productid[0].image %>"></li>
+                        <li data-palette-listing-image="" style="display: none; position: absolute; top: 50%; margin-top: -207.5px;" data-large-image-href="https://img1.etsystatic.com/026/0/5293776/il_570xN.609869523_nkwv.jpg" data-full-image-href="https://img1.etsystatic.com/026/0/5293776/il_fullxfull.609869523_nkwv.jpg" data-image-index="3" id="image-3">
+                            <img src="<%= products.productid[0].image %>"></li>
+                        <li data-palette-listing-image="" style="display: none; position: absolute; top: 50%; margin-top: -208px;" data-large-image-href="https://img0.etsystatic.com/043/0/5293776/il_570xN.609758676_4zqo.jpg" data-full-image-href="https://img0.etsystatic.com/043/0/5293776/il_fullxfull.609758676_4zqo.jpg" data-image-index="4" id="image-4">
+                            <img src="<%= products.productid[0].image %>"></li>
+                    </ul>
+
+                <div class="image-arrow-box-container" id="image-left-arrow-container">
+            <div class="image-arrow-box" id="image-left-arrow"><div class="arrow">◅</div></div>
+        </div>
+        <div class="image-arrow-box-container" id="image-right-arrow-container">
+            <div class="image-arrow-box" id="image-right-arrow"><div class="arrow">▻</div></div>
+        </div>
+            </div>
+    <div class="embedded-video-toggle" id="image-footer">
+                <ul id="circles">
+                    <li data-index="0" class="thumbnail-nav circle-selected">
+                        <img width="75" height="75" alt="Multiple Image 1" src="<%= products.productid[0].image %>">
+                    </li>
+                                                                                <li data-index="1" class="thumbnail-nav">
+                        <img width="75" height="75" alt="Multiple Image 2" src="<%= products.productid[0].image %>">
+                    </li>
+                                                                                <li data-index="2" class="thumbnail-nav">
+                        <img width="75" height="75" alt="Multiple Image 3" src="<%= products.productid[0].image %>">
+                    </li>
+                                                                                <li data-index="3" class="thumbnail-nav">
+                        <img width="75" height="75" alt="Multiple Image 4" src="<%= products.productid[0].image %>">
+                    </li>
+                                                                                <li data-index="4" class="thumbnail-nav">
+                        <img width="75" height="75" alt="Multiple Image 5" src="<%= products.productid[0].image %>">
+                    </li>
+                                    </ul>
+                <a target="_blank" href="<%= products.productid[0].image %>" id="zoom">
+            <span class="ss-icon">🔎</span>zoom
+        </a>
+    </div>
+
+</div>
+
+    </div>
+
+        <ul data-target-id="tab-contents" class="tabs clear" id="item-tabs">
+
+    <li class="first active"><a data-target-id="description" href="#">Item details</a></li>
+
+</ul>
+<div class="col7" id="tab-contents">
+    <div class="markdown description col7" id="description">
+
+        <div id="description-text">
+              Title  : <%= products.productid[0].title %> <br>
+              Description : <%= products.productid[0].description %> <br>
+              details     : <%= products.productid[0].details %> <br>
+              category    : <%= products.productid[0].category %> <br>
+              parentcategory : <%= products.productid[0].parentcategory %> <br>
+              oldprice : <%= products.productid[0].oldprice %> <br>
+              price : <%= products.productid[0].price %> <br>
+              discount : <%= products.productid[0].discount %> <br>
+              sizes : <%= products.productid[0].sizes %> <br>
+              keywords : <%= products.productid[0].keywords %> <br>
+        </div>
+
+          <strong>  Available on  : <%= products.storeid[0].storename %> </strong> <br><br>
+    </div>
+
+
+</div>
+</div>
+
+
+</div>

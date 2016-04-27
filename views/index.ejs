@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twelo</title>
+    <meta name="title" content="Twelo">
+    <meta name="description" content="Twelo is a community for all the world's shopping.">
+    <meta name="author" content="">
+    <meta name="keywords" content="All stores in one place">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+  </head>
+  <body>
+    <div id="wrap" class="container-fluid">
+
+      <!--  NavBar  -->
+      <% include partials/navbar %>
+      <br>
+
+      <!-- Begin page content -->
+      <div class="container">
+        <% include partials/phstore %>
+      </div>
+
+    </div>
+
+    <!--  Footer  -->
+    <% include partials/footer %>
+
+    <!-- SignUp Modal -->
+    <% include partials/signupmodal %>
+
+    <!-- SignIn Modal -->
+    <% include partials/signinmodal %>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('ul.nav > li').click(function(e) {
+          //e.preventDefault();
+          $('ul.nav > li').removeClass('active');
+          $(this).addClass('active');
+        });
+        //--
+        $('ul.nav > li').removeClass('active');
+        //$('#nsignin').addClass('active');
+        //--
+        $('#btnCloseModal').click(function(e) {
+          //e.preventDefault();
+          $('#nsignup').removeClass('active');
+          //$('#nsignin').addClass('active');
+          $('#nsignin').removeClass('active');
+        });
+        //--
+        $(document).on('hide.bs.modal','#divSignupModal', function () {
+          $('#nsignup').removeClass('active');
+          //$('#nsignin').addClass('active');
+        });
+        //--
+        $(document).on('hide.bs.modal','#divSigninModal', function () {
+          //$('#nsignup').removeClass('active');
+          $('#nsignin').removeClass('active');
+        });
+      });
+    </script>
+  </body>
+</html>

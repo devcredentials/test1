@@ -1,0 +1,121 @@
+<html>
+<head>
+  <!-- load bootstrap css -->
+  <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+  <!-- load fontawesome -->
+  <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="col-lg-12 pull-left">
+        <div class="content_area padding_all0">
+
+          <form id="editUser" action='../../user/save/id:<%=user._id %>' method='post'>
+              <div id="divContainer">
+                <br/>
+                <div>
+                <span><strong>local</strong></span>
+                      <div class="input-group">
+                         <span class="input-group-addon">UserName</span>
+                         <input id="lusername" name="lusername" type="text" class="form-control" value='<%=user.local.lusername %>' />
+                        </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Email</span>
+                        <input id="lemail" name="lemail" type="text" class="form-control" value='<%=user.local.email %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Password</span>
+                        <input id="lpwd" name="lpwd" type="text" class="form-control" value='<%=user.local.password %>' />
+                       </div>
+                 </div>
+                 <div>
+                   <span><strong>facebook</strong></span>
+                       <div class="input-group">
+                        <span class="input-group-addon">Id</span>
+                        <input id="fbid" name="fbid" type="text" class="form-control" value='<%=user.facebook.id %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Token</span>
+                        <input id="fbtoken" name="fbtoken" type="text" class="form-control" value='<%=user.facebook.token %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Email</span>
+                        <input id="fbemail" name="fbemail" type="text" class="form-control" value='<%=user.facebook.email %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Display name</span>
+                        <input id="fbdisplayname" name="fbdisplayname" type="text" class="form-control" value='<%=user.facebook.displayName %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">First name</span>
+                        <input id="fbfname" name="fbfname" type="text" class="form-control" value='<%=user.facebook.firstName %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Last Name</span>
+                        <input id="fblname" name="fblname" type="text" class="form-control" value='<%=user.facebook.lastName %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Gender</span>
+                        <input id="fbgender" name="fbgender" type="text" class="form-control" value='<%=user.facebook.gender %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Picture</span>
+                        <input id="fbpicture" name="fbpicture" type="text" class="form-control" value='<%=user.facebook.picture %>' />
+                       </div>
+                 </div>
+                 <div>
+                   <span><strong>twitter</strong></span>
+                       <div class="input-group">
+                        <span class="input-group-addon">Id </span>
+                        <input id="tid" name="tid" type="text" class="form-control" value='<%=user.twitter.id %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Token </span>
+                        <input id="ttoken" name="ttoken" type="text" class="form-control" value='<%=user.twitter.token %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Display name </span>
+                        <input id="tdisplayname" name="tdisplayname" type="text" class="form-control" value='<%=user.twitter.displayName %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">User name </span>
+                        <input id="tuname" name="tuname" type="text" class="form-control" value='<%=user.twitter.username %>' />
+                       </div>
+                 </div>
+                 <div>
+                   <span><strong>google</strong></span>
+                       <div class="input-group">
+                        <span class="input-group-addon">Id </span>
+                        <input id="gid" name="gid" type="text" class="form-control" value='<%=user.google.id %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Token </span>
+                        <input id="gtoken" name="gtoken" type="text" class="form-control" value='<%=user.google.token %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Email </span>
+                        <input id="gemail" name="gemail" type="text" class="form-control" value='<%=user.google.email %>' />
+                       </div>
+                       <div class="input-group">
+                        <span class="input-group-addon">Name </span>
+                        <input id="gname" name="gname" type="text" class="form-control" value='<%=user.google.name %>' />
+                       </div>
+                 </div>
+                 <div>
+                   <div class="input-group">
+                    <span class="input-group-addon">Creation Date </span>
+                    <input id="doc" name="doc" type="text" class="form-control" value='<%=user.google.dateofcreation %>' />
+                   </div>
+                   <div class="input-group">
+                    <span class="input-group-addon">Status </span>
+                    <input id="status" name="status" type="text" class="form-control" value='<%=user.google.ststus %>' />
+                   </div>
+                 </div>
+            </div>
+            <br>
+            <input type="submit"  id="save" value="Save" class="btn btn-primary btn-lg btn-block" />
+          </form>
+        </div>
+    </div>
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+</body>

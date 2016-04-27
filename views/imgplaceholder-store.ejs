@@ -1,0 +1,59 @@
+<% product.forEach(function(obj) { %>
+<!-- <h1><% obj %></h1> -->
+
+<div class="border-box">
+	<div class="common_image pull-left feed_trending_common">
+
+		<div class="product_details">
+		  <div class="product_desc">
+				<div class="product_info pull-left product_desc_media2">
+					<p>
+						<a href='<%=obj.image%>' class="nproduct ellipsis"><%=obj.title %> </a>
+                    </p>
+					<span class="product_post product_mobile"> posted by</span>
+					<a href="show/user/id:<%= obj.addedby %>" class="nuser ellipsis product_mobile">
+
+						<%if(user[0].displayname){ %>
+								<%= user[0].displayname %>
+						<% } %>
+					</a>
+					<div class="product_price1 product_mobile">
+              <div class="product_domain_price">
+							<span class="separator"> | </span>
+						</div>
+
+						<div class="product_price">
+							<span class="productPrice ellipsis"> <%= obj.currency %><%= obj.price %></span>
+						</div>
+                	</div>
+                </div>
+            </div>
+
+			<div class="product_common_image">
+				<a href='https://tryroom.herokuapp.com/admin/product/id:<%=obj._id%>'><!--product Page -->
+				<img src=<%=obj.image%> class="img-responsive" alt="" onerror="this.src='/images/noimage.jpg';">
+				</a>
+			</div>
+
+		</div>
+
+		<div class="desc_pdct1 ellipsis">
+			<span class="prdct_title">
+			<%if(user.displayimage){ %>
+			<img src="<%= user.displayimage %>" alt="" onerror="this.src='/images/imgprofile.jpg';">
+			<% } else {%>
+			<img src='/images/imgprofile.jpg'>
+			<%}%>
+			</span>
+			<span class="det_extra ellipsis pull-left">
+			</span>
+			<span>posted by <a href="show/user/id:<%= obj.addedby %>" class="nuser ellipsis">
+				<%if(user[0].displayname){ %>
+						<%= user[0].displayname %>
+				<% } %>
+			</a></span>
+		</div>
+
+	</div>
+</div>
+<% }); %>

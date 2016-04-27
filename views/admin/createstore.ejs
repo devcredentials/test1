@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <br>
+      <div class="col-lg-12 pull-left">
+          <div class="content_area padding_all0">
+            <span><strong>Edit Store : </strong></span>
+            <br>
+            <br>
+            <div class="container">
+              <form id="uploadForm" name="uploadForm" role="form" action="/uploads/profilepic" method="post" enctype="multipart/form-data">
+                <img id='ldisplayimage' src="" alt="profileImg"></img>
+                <input type="file" id="userPhoto" name="userPhoto"  value="Select Image"/>
+                <input type="submit" id="Submit" value="Submit"/>
+              </form>
+            </div>
+            <form id="editUser" action='../../store/save/id:' method='post'>
+              <div id="divContainer">
+                <div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Store Name</span>
+                    <input id="storename" name="storename" type="text" class="form-control" placeholder='Store Name' />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Display Name</span>
+                    <input id="dispName" name="dispName" type="text" class="form-control" placeholder='Store Display Name' />
+                  </div>
+
+
+                  <div class="input-group">
+                    <span class="input-group-addon">Creation Date</span>
+                    <input id="doc" name="doc" type="text" class="form-control" placeholder='' />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Favicon</span>
+                    <input id="favicon" name="favicon" type="text" class="form-control" placeholder='Store FAvicon' />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Description</span>
+                    <input id="description" name="description" type="text" class="form-control" placeholder='Store Description' />
+                  </div>
+
+                  <div class="input-group">
+                   <span class="input-group-addon">Verification Status</span>
+                     <select class="form-control" id="isVerifiedStore" name="isVerifiedStore">
+                       <option value='0'>NA</option>
+                       <option value='1'>Applied For</option>
+                       <option value='2'>In Process</option>
+                       <option value='3'>Verified</option>
+
+                     </select>
+                   </div>
+                   <div class="input-group">
+                      <span class="input-group-addon">Claimed Status</span>
+                        <select class="form-control" id="isClaimedStore" name="isClaimedStore">
+                              <option value='0'>NA</option>
+                              <option value='1'>Applied</option>
+                              <option value='2'>Claim Initiated</option>
+                              <option value='3'>Claimed</option>
+                        </select>
+                  </div>
+
+                </div>
+              </div>
+              <br>
+              <input type="submit" id="save" value="Save" class="btn btn-primary btn-lg btn-block" />
+            </form>
+          </div>
+      </div>
+      <% include ../partials/footer %>
+      <script src="/js/lib/jquery-2.2.0.min.js"></script>
+      <script src="/js/lib/bootstrap.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          // $('ul.nav > li').click(function (e) {
+          //     //e.preventDefault();
+          //     $('ul.nav > li').removeClass('active');
+          //     $(this).addClass('active');
+          // });
+          //$('ul.nav > li').removeClass('active');
+          //$('#nadmusers').addClass('active');
+        });
+      </script>
+  </body>
+</html>

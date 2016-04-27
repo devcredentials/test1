@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TryRoom-Products</title>
+    <meta name="title" content="TryRoom-Products">
+    <meta name="description" content="TryRoom is a community for all the world's shopping.">
+    <meta name="author" content="">
+    <meta name="keywords" content="All stores in one place">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <br>
+    <div class="container-fluid">
+      <div id="page-wrapper">
+        	<div class="table-responsive">
+			  <table class="table">
+			    <thead>
+			      <tr>
+              <th>Product</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Price</th>
+			        <th>Added By</th>
+              <th>Collection</th>
+              <th>Store</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+
+            <% if(locals.products){ %>
+              <% products.forEach(function(prod) { %>
+                <tr>
+                    <td><img src='<%= prod.productid[0].image %>'></img></td>
+                    <td><%= prod.productid[0].title %></td>
+                    <td><%= prod.productid[0].description  %></td>
+                    <td><%= prod.productid[0].currency %><%= prod.productid[0].price %></td>
+                    <td><a href ='/show/user/id:<%= prod.userid[0]._id %>' ><%= prod.userid[0].displayname %> </a> </td>
+                    <td><a href ='/show/collection/id:<%= prod.collectionid[0]._id %>' ><%= prod.collectionid[0].collectionname %> </a></td>
+                    <td><a href ='/store/id:<%= prod.storeid[0]._id %>' ><%= prod.storeid[0].storename %> </a> </td>
+                </tr>
+              <%  }) %>
+            <% } %>
+          </tbody>
+        </table>
+        </div>
+          <hr/>
+        </div>
+        <% include ../partials/footer %>
+        <script src="/js/lib/jquery-2.2.0.min.js"></script>
+        <script src="/js/lib/bootstrap.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            // $('ul.nav > li').click(function (e) {
+            //     //e.preventDefault();
+            //     $('ul.nav > li').removeClass('active');
+            //     $(this).addClass('active');
+            // });
+            $('ul.nav > li').removeClass('active');
+            $('#nadmprods').addClass('active');
+          });
+        </script>
+  </body>
+</html>

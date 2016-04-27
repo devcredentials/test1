@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TryRoom-Add Products</title>
+    <meta name="title" content="TryRoom-Add Products">
+    <meta name="description" content="TryRoom is a community for all the world's shopping.">
+    <meta name="author" content="">
+    <meta name="keywords" content="All stores in one place">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+      .radio-label {
+         display: inline-block;
+         vertical-align: top;
+         margin-right: 3%;
+      }
+      .radio-input {
+         display: inline-block;
+         vertical-align: top;
+      }
+      fieldset {
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <br>
+    <div class="container-fluid">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h6 class="panel-title"> Add Keywords </h6>
+          </div>
+          <div class="panel-body">
+
+
+            <!-- Desktop upload -->
+            <div id="fromDesktop" >
+              <div class="controls">
+                <form action="addkeywordsnew" method="post">
+                  <div class="input-group">
+                      <span class="input-group-addon">Keyword :</span>
+                      <input id="keyword" name="keyword" type="text" class="form-control" value="" autofocus required/>
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon">Meta Description :</span>
+                      <input id="metadesc" name="metadesc" type="text" class="form-control" value="" required/>
+                  </div>
+                  <br/>
+
+                  <br/>
+                  <button type='submit'id="Addkw" name="Add" class="btn btn-primary">Add</button>
+              </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include ../partials/footer %>
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // $('ul.nav > li').click(function(e) {
+        //     //e.preventDefault();
+        //     $('ul.nav > li').removeClass('active');
+        //     $(this).addClass('active');
+        // });
+        $('ul.nav > li').removeClass('active');
+        $('#nuprod').addClass('active');
+      });
+      //--
+      $(':radio[id=upload_url]').change(function() {
+        $("#fromDesktop").hide();
+        $("#fromExcel").hide();
+        $("#fromProdUrl").show();
+      });
+      $(':radio[id=upload_desktop]').change(function() {
+        $("#fromProdUrl").hide();
+        $("#fromExcel").hide();
+        $("#fromDesktop").show();
+      });
+      $(':radio[id=upload_excel]').change(function() {
+        $("#fromProdUrl").hide();
+        $("#fromDesktop").hide();
+        $("#fromExcel").show();
+      });
+    </script>
+  </body>
+</html>

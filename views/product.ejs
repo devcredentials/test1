@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TryRoom- <%=product[0].productid[0].title %></title>
+    <meta name="title" content="TryRoom">
+    <meta name="description" content="TryRoom is a community for all the world's shopping.">
+    <meta name="author" content="">
+	  <meta name="keywords" content= <% if(keywords) { %> <%=keywords.l1keywords %> <% } %> >
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    
+  </head>
+  <body>
+    <% include partials/navbar %>
+    <div class="container-fluid">
+		<div class="row mb5 back_f2f2f2">
+			<div class="col-lg-8 pull-left mb10 product_viewimage_media">
+				<div class="col-lg-12 pull-left">
+					<div class="col-lg-2">
+					<div class="profile_image">
+							<a href="" class="">
+								<img src="<%=product[0].userid[0].displayimage%>" alt="http://localhost:3000/images/imgprofile.jpg" />
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-10 pull-left">
+						<h3 class="text_ellipsis"><%= product[0].productid[0].description %> </h3>
+						<div class="mt10 prodName">
+							<span class="color_0097D8">
+							   <a href="" class=" color_0097D8"><%=product[0].userid[0].displayname%></a>
+							</span>
+							posted this to
+							<span class="color_0097D8"><a href="" class="color_0097D8 "> <%=product[0].storeid[0].storename %> </a></span>
+								on <%=product[0].productid[0].addedon %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-attribution-show-triangle"></div>
+		</div>
+
+		<div class="row tabProduct">
+			<input type="hidden" value="" id="collection_id" name="collection_id"/>
+			<div class="col-lg-12 mt15 pull-left">
+				<div class="col-lg-11 ml4d8">
+					<h4><%= product[0].productid[0].title %></h4>
+					<p class="grey_bold color_0097D8">
+					From <a href="" class="color_0097D8"> <%=product[0].storeid[0].storename %> </a>&nbsp;
+					Originally posted by  <a href="" class="color_0097D8" ><%=product[0].userid[0].displayname%></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="col-lg-12 pull-left prodView">
+				<div class="col-lg-7 ml4d8">
+					<div class="products-show-image ">
+						<a href="<%=product[0].productid[0].baseurl%>" target="_blank"><img src="<%=product[0].productid[0].image%> " alt="<%=product[0].productid[0].image%>" class="img-responsive center-block" onerror="this.src='http://waneloclone.exaltinfoway.com/public/uploads/broken.png';"/></a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 mt30">
+					<input class="btn btn-success btn-large save-btn pull-left save_default"  pid="268" type="submit"  value="SAVE" />
+
+					<div class="products-show-controls-save-count-tag-left"></div>
+					<div class="products-show-controls-save-count-tag-right">
+						<span class="save">1</span>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div class="col-lg-12 pull-left">
+						<a href="" class="btn btn-primary pull-left btn-large mt30 buy_default btnBuy " target="_blank">BUY</a>
+						<div class="products-show-controls-save-count-tag-left product-show-yellow-left"></div>
+						<div class="products-show-controls-save-count-tag-right product-show-yellow-right">
+											<%= product[0].productid[0].currency %><%= product[0].productid[0].price %>
+						</div>
+					</div>
+
+					<div class="suggestion_follow mt15 col-lg-12 profile_following product_view_common product_common_media2 pull-left">
+						<div class="col-lg-12 pull-left	mb2per">
+							<div class="col-lg-7 list_image_product_view pull-left product_view_media5">
+								<p class="text-left">
+									More from <a href=""><%=product[0].storeid[0].storename %></a>
+								</p>
+							</div>
+							<div class="col-lg-3 pull-right pr_media5">
+
+								<ul class="nav pull-right trending_nav">
+									<li><a href="#" id="unfollow" class="unfollow product_view_follow stores_follow" ty="stores" uid="3"><i class="icon"></i>Following</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="common_image pull-left">
+							<div class="product_details">
+
+								<div class="product_common_image">
+									<a href="http://waneloclone.exaltinfoway.com/public/products/view/312/pilot-lapdesk-by-iskelter">
+									<img src="http://waneloclone.exaltinfoway.com/public/uploads/products/grid/f565b52019b390a10e56c17129cf70be.jpg" class="img-responsive" alt=""
+									onerror="this.src='http://waneloclone.exaltinfoway.com/public/uploads/broken.png';"/>
+									</a>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="common_image pull-left">
+							<div class="product_details">
+
+								<div class="product_common_image">
+									<a href="http://waneloclone.exaltinfoway.com/public/products/view/311/mistymate-portable-misting-system">
+									<img src="http://waneloclone.exaltinfoway.com/public/uploads/products/grid/5b6f072b6ec941811f92c07e2f4f8e0b.jpg" class="img-responsive" alt=""
+									onerror="this.src='http://waneloclone.exaltinfoway.com/public/uploads/broken.png';"/>
+									</a>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="common_image pull-left">
+							<div class="product_details">
+
+								<div class="product_common_image">
+									<a href="http://waneloclone.exaltinfoway.com/public/products/view/310/flow-magnetic-macbook-sleeve-by-aecraft">
+									<img src="http://waneloclone.exaltinfoway.com/public/uploads/products/grid/e3c51bee1d0f13be23bb2c97b6b8302c.jpg" class="img-responsive" alt=""
+									onerror="this.src='http://waneloclone.exaltinfoway.com/public/uploads/broken.png';"/>
+									</a>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="common_image pull-left">
+							<div class="product_details">
+
+								<div class="product_common_image">
+									<a href="http://waneloclone.exaltinfoway.com/public/products/view/308/am-olive-daypack">
+									<img src="http://waneloclone.exaltinfoway.com/public/uploads/products/grid/cd9a01b0e8786a64d4e4e580f657e9f8.jpg" class="img-responsive" alt=""
+									onerror="this.src='http://waneloclone.exaltinfoway.com/public/uploads/broken.png';"/>
+									</a>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="common_image pull-left">
+							<div class="product_details">
+								<div class="product_common_image">
+									<a href="http://waneloclone.exaltinfoway.com/public/products/view/309/am-olive-daypack">
+									<img src="http://waneloclone.exaltinfoway.com/public/uploads/products/grid/19ae4b7c5a66b534675b2afadf3c8989.jpg" class="img-responsive" alt=""
+									onerror="this.src='http://waneloclone.exaltinfoway.com/public/uploads/broken.png';"/>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="common_image pull-left">
+							<div class="product_details">
+								<div class="product_common_image">
+									<a href="http://waneloclone.exaltinfoway.com/public/products/view/303/fancy-scoopthat-heated-ice-cream-scoop">
+									<img src="http://waneloclone.exaltinfoway.com/public/uploads/products/grid/1a1e10cb6e0c54902f1366543f62bd5e.jpg" class="img-responsive" alt=""
+									onerror="this.src='http://waneloclone.exaltinfoway.com/public/uploads/broken.png';"/>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-12 pull-left">
+				<div class="col-lg-8 pull-left ml4d8 social_icon_media5">
+					<div id ="sharethis">
+						<span class='st_sharethis' displayText='ShareThis'></span>
+						<span class='st_facebook' displayText='Facebook'></span>
+						<span class='st_twitter' displayText='Tweet'></span>
+						<span class='st_linkedin' displayText='LinkedIn'></span>
+						<span class='st_pinterest' displayText='Pinterest'></span>
+						<span class='st_email' displayText='Email'></span>
+					</div>
+
+					<!--//sharethis scripts-->
+					<script type="text/javascript">var switchTo5x = true;</script>
+					<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+					<script type="text/javascript">
+					  stLight.options({publisher: "3211e47a-37e6-4e0b-a880-b807ec934e9e", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+					</script>
+					<!--//End sharethis -->
+				</div>
+		</div>
+
+		<div class="col-lg-12 pull-left">
+			<div class="row mb10 comments col-lg-11 pull-left ml4d8">
+				<div id="commentscontainer" class="comment_area">
+					<div class="col-lg-12 enter_comment float-left">
+
+						<div class="form-group mt5 col-lg-12 pull-left">
+
+							 <div class="col-lg-1 comments_mr1per">
+								 <a href="">
+								 <img src="http://localhost:3000/images/imgprofile.jpg" alt="profile image" class="margin0"/></a>
+							</div>
+
+
+							<div class="col-lg-9 comments_col-lg-9">
+								<textarea name="message" placeholder="Comment,@mention,#hashtag"  class="form-control message back_f2f2f2" id="message" rows="2" uid="268" data-toggle="tooltip" title="Body can't be blank" data-placement="bottom"></textarea>
+									<!--<div class="text-right" id="charNum">0</div>-->
+							</div>
+							<div class="col-lg-2 post_btn_media">
+									 <input class="btn comment post_btn btn-primary pull-right col-lg-9"  id="comment" uid="268" name="comment" type="submit" value="POST"/>
+							</div>
+						 </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    </div>
+    <% include partials/footer %>
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+
+      });
+    </script>
+  </body>
+</html>

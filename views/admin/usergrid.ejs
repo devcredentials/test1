@@ -1,0 +1,37 @@
+<div id="page-wrapper">
+        	<div class="table-responsive">
+			  <table class="table">
+			    <thead>
+			      <tr>
+              <th><input type='checkbox' value=""></th>
+              <th>Display Name</th>
+              <th>Email</th>
+              <th>FB Id</th>
+              <th>Role</th>
+			        <th>Account Created On</th>
+              <th>Status</th>
+              <th></th>
+
+			      </tr>
+			    </thead>
+			    <tbody>
+            <% if(locals.user){ %>
+    				    <% user.forEach(function(obj) { %>
+    				    	<tr>
+                    <td><input type='checkbox' value=""></td>
+                    <td><a href='../../admin/user/edit/id:<%= obj._id %>'><%= obj.displayname %></a></td>
+    				    		<td><%= obj.primaryemail %></td>
+                    <td><%= obj.facebook.id %></td>
+                    <td><% if(obj.role == 1){ %> User <% } else{ %> Admin <% } %> </td>
+                    <td><%= obj.dateofcreation %></td>
+                    <td><% if(obj.status == 0){ %> Deleted <%  } else if(obj.status == 1){ %> Active <%  } else if(obj.status == 2){ %> Inactive <%  } else if(obj.status == 3){ %> Banned <% } %></td>
+                    <!-- <td><a href='../../listing/user/edit/id:<%= obj._id %>'>Edit</a></td> -->
+                    <!-- <td><input name=<%= obj._id %> type="button" value="Edit" onclick='../../listing/user/edit/id:<%= obj._id %>'></td> -->
+    				    	</tr>
+    				    <% }); %>
+            <% } %>
+			    </tbody>
+			  </table>
+			 </div>
+          <hr/>
+        </div>

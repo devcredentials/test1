@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TryRoom-User Edit</title>
+    <meta name="title" content="TryRoom-User Edit">
+    <meta name="description" content="TryRoom is a community for all the world's shopping.">
+    <meta name="author" content="">
+    <meta name="keywords" content="All stores in one place">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- load googelpais opensans -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+    <!-- load styles -->
+    <style>
+      body {
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <br>
+      <div class="col-lg-12 pull-left">
+          <div class="content_area padding_all0">
+            <span><strong>Account Details</strong></span>
+            <br>
+            <br>
+            <div class="container">
+              <form id="uploadForm" name="uploadForm" role="form" action="/uploads/profilepic" method="post" enctype="multipart/form-data">
+                <img id='ldisplayimage' src="<%= user.displayimage %>" alt="profileImg"></img>
+                <input type="file" id="userPhoto" name="userPhoto"  value="Select Image"/>
+                <input type="submit" id="Submit" value="Submit"/>
+              </form>
+            </div>
+            <form id="editUser" action='../../user/save/id:<%=user._id %>' method='post'>
+              <div id="divContainer">
+                <div>
+                  <div class="input-group">
+                    <span class="input-group-addon">UserName</span>
+                    <input id="lusername" name="ldisplayname" type="text" class="form-control" value='<%= user.displayname %>' />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Email</span>
+                    <input id="lemail" name="lemail" type="text" class="form-control" value='<%= user.primaryemail %>' />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Password</span>
+                    <input id="lpwd" name="lpwd" type="password" class="form-control" value='' />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Confirm Password</span>
+                    <input id="lcpwd" name="lcpwd" type="password" class="form-control" value='' />
+                  </div>
+                  <div class="input-group">
+                      <span class="input-group-addon">Role </span>
+                        <select class="form-control" id="lrole" name="lrole">
+                          <% if( locals.user.role === '0'){ %>
+                            <option value='0' selected >Admin</option>
+                          <% } else { %>
+                            <option value='0'>Admin</option>
+                          <% } %>
+
+                          <% if(locals.user.role === '1'){ %>
+                            <option value='1' selected >User</option>
+                          <% } else { %>
+                            <option value='1'>User</option>
+                          <% } %>
+                        </select>
+                  </div>
+
+                  <div class="input-group">
+                      <span class="input-group-addon">Status </span>
+                        <select class="form-control" id="lstatus" name="lstatus">
+                          <% if( locals.user.status === '0'){ %>
+                            <option value='0' selected >Delete</option>
+                          <% } else { %>
+                            <option value='0'>Delete</option>
+                          <% } %>
+
+                          <% if(locals.user.status === '1'){ %>
+                            <option value='1' selected >Active</option>
+                          <% } else { %>
+                            <option value='1'>Active</option>
+                          <% } %>
+
+                          <% if(locals.user.status === '2'){ %>
+                            <option value='2' selected >Inactive</option>
+                          <% } else { %>
+                            <option value='2'>Inactive</option>
+                          <% } %>
+
+                          <% if(locals.user.status === '3'){ %>
+                            <option value='3' selected >Banned</option>
+                          <% } else { %>
+                            <option value='3'>Banned</option>
+                          <% } %>
+                        </select>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <input type="submit" id="save" value="Save" class="btn btn-primary btn-lg btn-block" />
+            </form>
+          </div>
+      </div>
+      <% include ../partials/footer %>
+      <script src="/js/lib/jquery-2.2.0.min.js"></script>
+      <script src="/js/lib/bootstrap.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          // $('ul.nav > li').click(function (e) {
+          //     //e.preventDefault();
+          //     $('ul.nav > li').removeClass('active');
+          //     $(this).addClass('active');
+          // });
+          //$('ul.nav > li').removeClass('active');
+          //$('#nadmusers').addClass('active');
+        });
+      </script>
+  </body>
+</html>

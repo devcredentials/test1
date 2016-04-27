@@ -1,0 +1,80 @@
+<% results.productList.forEach(function(obj) { %>
+
+<div class="border-box">
+	<div class="common_image pull-left feed_trending_common">
+
+		<div class="product_details">
+			<a href="javascript:void(0)" pid="268" class="tag-btn">
+				<div class="tag_frnd pull-left">
+					<p class="bold">TAG</p>
+					<p class="product_mobile">a friend</p>
+				</div>
+			</a>
+
+			<a href="javascript:void(0)" pid="268" class="save-btn pull-right">
+				<div class="feed_saves pull-right">
+					<p class="bold"><span class="button_text">SAVE</span></p>
+					<p class="product_mobile">
+						<span class="save">1</span>
+						<span class="saves">save</span>
+					</p>
+				</div>
+			</a>
+
+      <div class="product_desc">
+				<div class="product_info pull-left product_desc_media2">
+					<p>
+						<a href='https://tryroom.herokuapp.com/admin/product/id:<%=obj._id%>' class="nproduct ellipsis"><%=obj.title %> </a>
+                    </p>
+					<span class="product_post product_mobile"> posted by</span>
+					<a href="show/user/id:<%= obj.addedby %>" class="nuser ellipsis product_mobile">
+
+						<%if(results.userList[0].displayname){ %>
+								<%= results.userList[0].displayname %>
+						<% } %>
+					</a>
+					<div class="product_price1 product_mobile">
+                     	<div class="product_domain_price">
+
+							<a href="/store/id:<%= results.storeList[0]._id %> " class="product_domain pull-left"> <%= results.storeList[0].storename %> </a>
+							<a href="/show/collection/id:<%= results.collectionList[0]._id %> " class="product_domain pull-left"> <%= results.collectionList[0].collectionname %> </a>
+
+							<span class="separator"> | </span>
+						</div>
+
+						<div class="product_price">
+							<span class="productPrice ellipsis"> <%= obj.currency %><%= obj.price %></span>
+						</div>
+                	</div>
+                </div>
+            </div>
+
+			<div class="product_common_image">
+				<a href='https://tryroom.herokuapp.com/admin/product/id:<%=obj._id%>'><!--product Page -->
+				<img src=<%=obj.image%> class="img-responsive" alt="" onerror="this.src='/images/noimage.jpg';">
+				</a>
+			</div>
+
+		</div>
+
+		<div class="desc_pdct1 ellipsis">
+			<span class="prdct_title">
+			<%if(results.userList[0].displayimage){ %>
+			<img src="<%= results.userList[0].displayimage %>" alt="" onerror="this.src='/images/imgprofile.jpg';">
+			<% } else {%>
+			<img src='/images/imgprofile.jpg'>
+			<%}%>
+			</span>
+			<span class="det_extra ellipsis pull-left">
+				<a href="/store/id:<%= results.storeList[0]._id %>"><%= results.storeList[0].storename %> </a>
+			</span>
+			<span>posted by <a href="show/user/id:<%= obj.addedby %>" class="nuser ellipsis">
+						<%if(results.userList[0].displayname){ %>
+								<%= results.userList[0].displayname %>
+						<% } %>
+						</a></span>
+		</div>
+
+	</div>
+</div>
+<% }); %>
